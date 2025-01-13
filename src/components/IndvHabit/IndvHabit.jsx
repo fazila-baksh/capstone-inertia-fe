@@ -1,6 +1,7 @@
 import "./IndvHabit.scss";
 import edit from "../../assets/icons/edit.svg";
 import remove from "../../assets/icons/remove.svg";
+import HabitDetails from "../HabitDetails/HabitDetails";
 
 function IndvHabit() {
   return (
@@ -12,12 +13,9 @@ function IndvHabit() {
         </div>
         <h2 className="indvHabit__title">water</h2>
       </div>
-      <div className="indvHabit__info">
-        <h3 className="indvHabit__subtitle">description:</h3>
-        <p className="indvHabit__text">drink 8 glasses of water a day</p>
-        <h3 className="indvHabit__subtitle">frequency:</h3>
-        <p className="indvHabit__text">7 days a week</p>
-      </div>
+      <HabitDetails />
+      <h2 className="indvHabit__subtitle">overview</h2>
+      <p className="indvHabit__date">january 1st, 2025 - december 31st, 2025</p>
     </section>
   );
 }
