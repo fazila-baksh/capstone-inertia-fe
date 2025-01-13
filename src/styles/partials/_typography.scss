@@ -1,18 +1,13 @@
 @font-face {
   font-family: "Sour-Gummy";
-  src: url(../../assets/fonts/SourGummy.ttf) format(ttf);
+  src: url(../../assets/fonts/SourGummy.ttf) format(truetype);
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "M-PLUS-Rounded";
-  src: url(../../assets/fonts/MPLUSRounded-Light.ttf) format(ttf);
+  src: url(../../assets/fonts/MPLUSRounded.ttf) format(truetype);
   font-weight: normal;
   font-style: normal;
-}
-
-html {
-  font-family: "M-PLUS-Rounded", sans-serif;
-  font-family: 1rem;
 }

@@ -1,0 +1,12 @@
+@use "./typography" as *;
+@use "./variables" as *;
+
+html {
+  font-family: "M-PLUS-Rounded";
+}
+
+body {
+  font-family: 1rem;
+  background-color: $primary-color;
+  padding: 1.25rem;
+}

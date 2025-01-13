@@ -1,3 +1,5 @@
+@use "./typography" as *;
+
 @mixin flex($display, $direction, $justify, $align) {
   display: $display;
   flex-direction: $direction;

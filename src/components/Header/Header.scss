@@ -1,0 +1,17 @@
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  @include flex(flex, row, space-between, normal);
+  &__title {
+    font-family: "Sour-Gummy";
+    font-size: 3.75rem;
+    margin: 0;
+    flex-grow: 1;
+  }
+  &__icon {
+    flex-grow: 0;
+  }
+}
