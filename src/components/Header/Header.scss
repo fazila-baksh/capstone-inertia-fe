@@ -16,13 +16,14 @@
   &__nav {
     @include flex(flex, row, space-around, center);
     margin-bottom: 0.9375rem;
+    border-bottom: 2px solid $secondary-color;
   }
 
   &__nav-link {
     font-size: 1.5rem;
     font-family: "Sour-Gummy";
     color: white;
-    margin: 0;
+    margin: 0 0 0.9375rem 0;
     padding: 0.3125rem 0.9375rem;
     border-radius: 1.875rem;
     &:hover {

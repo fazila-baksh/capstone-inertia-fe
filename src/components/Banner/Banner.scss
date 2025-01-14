@@ -1,0 +1,15 @@
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.banner {
+  text-align: center;
+  border: 0.125rem solid $secondary-color;
+  justify-self: center;
+  border-radius: 1.25rem;
+  margin: 0 0 1.5625rem 0;
+  padding: 0.3125rem 1.25rem;
+  color: white;
+  font-family: "Sour-Gummy";
+}
