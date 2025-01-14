@@ -35,18 +35,30 @@
 }
 
 .habit {
-  background-color: $fifth-color;
+  background-color: $quatenary-color;
   padding: 0.625rem;
   font-size: 1.25rem;
   margin-bottom: 0.625rem;
   display: flex;
   border-radius: 1.875rem;
+  border: 2px solid $fifth-color;
 
   &__checkbox {
+    -webkit-appearance: checkbox;
+    appearance: none;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 3px;
     background-color: $tertiary-color;
-    height: 1.25rem;
-    width: 3.125rem;
-    margin: 0;
+    align-self: center;
+    margin: 0 0 0 0.625rem;
+    &:checked {
+      -webkit-appearance: checkbox;
+    }
+  }
+
+  &__name {
+    margin-left: 0.625rem;
     align-self: center;
   }
 }
