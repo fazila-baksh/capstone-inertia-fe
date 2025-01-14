@@ -10,18 +10,19 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex(flex, row, center, center);
+
   &__message {
     background-color: $quatenary-color;
     padding: 1.25rem;
     border-radius: 0.3125rem;
     font-family: "Sour-Gummy";
   }
+
   &__btn-container {
     @include flex(flex, row, space-around, center);
   }
+
   &__btn {
     padding: 0.3125rem 0.9375rem;
     background-color: $fifth-color;
