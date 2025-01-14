@@ -6,6 +6,7 @@ import WeeklyPage from "./pages/WeeklyPage/WeeklyPage";
 import HabitPage from "./pages/HabitPage/HabitPage";
 import AddHabit from "./components/AddHabit/AddHabit";
 import EditHabit from "./components/EditHabit/EditHabit";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/add" element={<AddHabit />} />
           <Route path="/edit" element={<EditHabit />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

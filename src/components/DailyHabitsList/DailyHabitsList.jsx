@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./DailyHabitsList.scss";
 
 function DailyHabitsList() {
@@ -5,7 +6,9 @@ function DailyHabitsList() {
     <section className="habits">
       <div className="habits__banner">
         <h2 className="habits__title">daily habits</h2>
-        <button className="habits__btn">+ add</button>
+        <Link to="/add">
+          <button className="habits__btn">+ add</button>
+        </Link>
       </div>
       <div className="habits__container">
         <div className="habit">

@@ -1,4 +1,5 @@
 import "./IndvHabit.scss";
+import { Link } from "react-router";
 import edit from "../../assets/icons/edit.svg";
 import remove from "../../assets/icons/remove.svg";
 import HabitDetails from "../HabitDetails/HabitDetails";
@@ -9,7 +10,9 @@ function IndvHabit() {
     <section className="indvHabit">
       <div className="indvHabit__banner">
         <div className="indvHabit__icon-container">
-          <img className="indvHabit__icon" src={edit} />
+          <Link to="/edit">
+            <img className="indvHabit__icon" src={edit} />
+          </Link>
           <img className="indvHabit__icon" src={remove} />
         </div>
         <h2 className="indvHabit__title">water</h2>
