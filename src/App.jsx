@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import WeeklyPage from "./pages/WeeklyPage/WeeklyPage";
 import HabitPage from "./pages/HabitPage/HabitPage";
 import AddHabit from "./components/AddHabit/AddHabit";
+import EditHabit from "./components/EditHabit/EditHabit";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/habit" element={<HabitPage />} />
           <Route path="/weekly" element={<WeeklyPage />} />
           <Route path="/add" element={<AddHabit />} />
+          <Route path="/edit" element={<EditHabit />} />
         </Routes>
       </BrowserRouter>
     </>
