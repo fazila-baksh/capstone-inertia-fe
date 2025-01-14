@@ -1,9 +1,10 @@
 import "./IndvHabit.scss";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import edit from "../../assets/icons/edit.svg";
 import remove from "../../assets/icons/remove.svg";
 import HabitDetails from "../HabitDetails/HabitDetails";
 import HabitGraph from "../HabitGraph/HabitGraph";
+import DeleteHabit from "../DeleteHabit/DeleteHabit";
 
 function IndvHabit() {
   return (
@@ -11,9 +12,18 @@ function IndvHabit() {
       <div className="indvHabit__banner">
         <div className="indvHabit__icon-container">
           <Link to="/edit">
-            <img className="indvHabit__icon" src={edit} />
+            <img className="indvHabit__icon" src={edit} alt="Edit" />
           </Link>
-          <img className="indvHabit__icon" src={remove} />
+          <DeleteHabit>
+            {({ showModal, setShowModal }) => (
+              <img
+                className="indvHabit__icon"
+                src={remove}
+                alt="Delete"
+                onClick={() => setShowModal(true)}
+              />
+            )}
+          </DeleteHabit>
         </div>
         <h2 className="indvHabit__title">water</h2>
       </div>
