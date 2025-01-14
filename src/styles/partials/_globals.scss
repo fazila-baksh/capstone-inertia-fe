@@ -1,12 +1,13 @@
 @use "./typography" as *;
 @use "./variables" as *;
 html {
-  height: fit-content;
+  height: 100%;
 }
 body {
   font-family: "M-PLUS-Rounded", sans-serif;
   font-size: 1rem;
   background-color: $primary-color;
+  min-height: 100vh;
   padding: 1.25rem;
   color: black;
   margin: 0;
