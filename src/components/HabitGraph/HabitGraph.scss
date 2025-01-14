@@ -1,0 +1,10 @@
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.line-graph-container {
+  background-color: $quatenary-color;
+  border-radius: 0.625rem;
+  padding: 0.625rem 1.875rem;
+}

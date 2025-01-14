@@ -2,6 +2,7 @@ import "./IndvHabit.scss";
 import edit from "../../assets/icons/edit.svg";
 import remove from "../../assets/icons/remove.svg";
 import HabitDetails from "../HabitDetails/HabitDetails";
+import HabitGraph from "../HabitGraph/HabitGraph";
 
 function IndvHabit() {
   return (
@@ -16,6 +17,7 @@ function IndvHabit() {
       <HabitDetails />
       <h2 className="indvHabit__subtitle">overview</h2>
       <p className="indvHabit__date">january 1st, 2025 - december 31st, 2025</p>
+      <HabitGraph />
     </section>
   );
 }

@@ -1,6 +1,8 @@
 @use "./typography" as *;
 @use "./variables" as *;
-
+html {
+  height: fit-content;
+}
 body {
   font-family: "M-PLUS-Rounded", sans-serif;
   font-size: 1rem;
@@ -8,6 +10,4 @@ body {
   padding: 1.25rem;
   color: black;
   margin: 0;
-  height: auto;
-  height: 100vh;
 }
