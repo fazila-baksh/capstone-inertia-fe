@@ -61,4 +61,12 @@
     height: 4vh;
     padding-left: 0.625rem;
   }
+  &__form-btn {
+    width: 75%;
+    padding: 0.3125rem 1.25rem;
+    align-self: center;
+    margin-top: 1.25rem;
+    background-color: $fifth-color;
+    font-family: "Sour-Gummy";
+  }
 }

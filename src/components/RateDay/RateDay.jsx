@@ -25,6 +25,7 @@ function RateDay() {
         <form className="rate__form">
           <label className="rate__form-label">describe your day</label>
           <input className="rate__form-input" type="text" />
+          <button className="rate__form-btn">submit</button>
         </form>
       </div>
     </section>
