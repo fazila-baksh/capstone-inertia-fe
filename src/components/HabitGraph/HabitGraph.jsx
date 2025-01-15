@@ -12,11 +12,24 @@ import {
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale);
 
 const data = {
-  labels: ["January", "February", "March", "April", "May", "June", "July"],
+  labels: [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ],
   datasets: [
     {
       label: "My Data",
-      data: [12, 19, 3, 5, 2, 3, 10],
+      data: [25, 30, 19, 26, 27, 30, 28, 20, 20, 30, 19, 28],
       fill: false,
       borderColor: "rgb(75, 192, 192)",
     },

@@ -29,7 +29,7 @@ function IndvHabit() {
       </div>
       <HabitDetails />
       <h2 className="indvHabit__subtitle">overview</h2>
-      <p className="indvHabit__date">january 1st, 2025 - december 31st, 2025</p>
+      <p className="indvHabit__date">january 1st, 2024 - december 31st, 2024</p>
       <HabitGraph />
     </section>
   );
