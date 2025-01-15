@@ -7,12 +7,12 @@ function WeeklyHabits() {
       <table className="weekly__table">
         <tr className="weekly__table-headers">
           <th className="weekly__table-header">habit</th>
+          <th className="weekly__table-header">s</th>
           <th className="weekly__table-header">m</th>
           <th className="weekly__table-header">t</th>
           <th className="weekly__table-header">w</th>
           <th className="weekly__table-header">t</th>
           <th className="weekly__table-header">f</th>
-          <th className="weekly__table-header">s</th>
           <th className="weekly__table-header">s</th>
           <th className="weekly__table-header">goal</th>
         </tr>
