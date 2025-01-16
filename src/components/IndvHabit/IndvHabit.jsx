@@ -36,26 +36,24 @@ function IndvHabit() {
   return (
     <section className="indvHabit">
       <div className="indvHabit__banner">
-        <div className="indvHabit__icon-container">
-          <Link to="/edit">
-            <img className="indvHabit__icon" src={edit} alt="Edit" />
-          </Link>
-          <DeleteHabit>
-            {({ showModal, setShowModal }) => (
-              <img
-                className="indvHabit__icon"
-                src={remove}
-                alt="Delete"
-                onClick={() => setShowModal(true)}
-              />
-            )}
-          </DeleteHabit>
-        </div>
+        <Link to="/edit/:id">
+          <img className="indvHabit__icon" src={edit} alt="Edit" />
+        </Link>
         {indvHabit.map((habit) => (
           <div key={habit.id}>
             <h2 className="indvHabit__title">{habit.habit_name}</h2>
           </div>
         ))}
+        <DeleteHabit>
+          {({ showModal, setShowModal }) => (
+            <img
+              className="indvHabit__icon"
+              src={remove}
+              alt="Delete"
+              onClick={() => setShowModal(true)}
+            />
+          )}
+        </DeleteHabit>
       </div>
       <HabitDetails />
       <h2 className="indvHabit__subtitle">overview</h2>

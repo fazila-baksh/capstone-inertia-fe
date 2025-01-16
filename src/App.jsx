@@ -17,7 +17,7 @@ function App() {
           <Route path="/habit/:id" element={<HabitPage />} />
           <Route path="/weekly" element={<WeeklyPage />} />
           <Route path="/add" element={<AddHabit />} />
-          <Route path="edit/:id" element={<EditHabit />} />
+          <Route path="edit" element={<EditHabit />} />
         </Routes>
         <Footer />
       </BrowserRouter>

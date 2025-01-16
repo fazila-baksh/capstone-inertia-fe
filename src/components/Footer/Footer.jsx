@@ -1,10 +1,12 @@
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 import "./Footer.scss";
 
 function Footer() {
   return (
     <footer className="footer">
-      <NavLink className="footer__logo">inertia</NavLink>
+      <Link to="/" className="footer__logo">
+        inertia
+      </Link>
       <p className="footer__copyrite">© inertia Inc. All Rights Reserved.</p>
     </footer>
   );

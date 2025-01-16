@@ -1,52 +1,29 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
-import AddHabit from "../../components/AddHabit/AddHabit";
-import { baseUrl } from "../../utilities/config.js";
+import "./EditHabit.scss";
 
-function EditPage() {
-  const { id } = useParams();
-  const [habitData, setHabitData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchHabitData = async () => {
-      try {
-        const response = await axios.get(`${baseUrl}/user/1/habits/${id}`);
-        setHabitData(response.data[0]);
-        setLoading(false);
-      } catch (err) {
-        setError("Error fetching habit data.");
-        setLoading(false);
-      }
-    };
-
-    fetchHabitData();
-  }, [id]);
-
-  const handleUpdateHabit = async (formData) => {
-    try {
-      await axios.put(`${baseUrl}/user/1/habits/${id}`, formData);
-      navigate(`/habit/${id}`);
-    } catch (err) {
-      setError("Error updating habit.");
-    }
-  };
-
-  const logHabitData = () => {
-    console.log("Current Habit Data:", habitData);
-  };
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-
+function EditHabit() {
   return (
-    <div>
-      <AddHabit habitData={habitData} onSubmit={handleUpdateHabit} />
-    </div>
+    <section className="edit-habit">
+      <h2 className="edit-habit__title">edit your habit</h2>
+      <form className="edit-habit__form">
+        <label className="edit-habit__label">name:</label>
+        <input className="edit-habit__input" type="text" />
+        <label className="edit-habit__label">description:</label>
+        <input className="edit-habit__input" type="text" />
+        <label className="edit-habit__label">goal:</label>
+        <select className="edit-habit__input">
+          <option className="edit-habit__option"></option>
+          <option className="edit-habit__option">1 time per week</option>
+          <option className="edit-habit__option">2 times per week</option>
+          <option className="edit-habit__option">3 times per week</option>
+          <option className="edit-habit__option">4 times per week</option>
+          <option className="edit-habit__option">5 times per week</option>
+          <option className="edit-habit__option">6 times per week</option>
+          <option className="edit-habit__option">7 times per week</option>
+        </select>
+      </form>
+      <button className="edit-habit__btn">submit</button>
+    </section>
   );
 }
 
-export default EditPage;
+export default EditHabit;

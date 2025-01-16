@@ -4,7 +4,6 @@ function HabitPage() {
   return (
     <>
       <IndvHabit />
-      <HabitGraph />
     </>
   );
 }
