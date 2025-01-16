@@ -1,15 +1,21 @@
 import "./Header.scss";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 function Header() {
   return (
     <header className="header">
-      <h1 className="header__title">inertia</h1>
+      <Link to="/" className="header__title">
+        inertia
+      </Link>
       <nav className="header__nav">
-        <NavLink to="/" className="header__nav-link">
+        <NavLink to="/" className="header__nav-link" activeclassname="active">
           daily
         </NavLink>
-        <NavLink to="/weekly" className="header__nav-link">
+        <NavLink
+          to="/weekly"
+          className="header__nav-link"
+          activeclassname="active"
+        >
           weekly
         </NavLink>
       </nav>
