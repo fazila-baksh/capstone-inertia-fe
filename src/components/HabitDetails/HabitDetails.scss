@@ -1,0 +1,18 @@
+@use "../../styles/partials/globals" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.habit-details {
+  background-color: $quatenary-color;
+  border-radius: 0.625rem;
+  padding: 0.625rem 1.875rem;
+
+  &__subtitle {
+    margin: 0;
+  }
+
+  &__text {
+    margin-top: 0;
+  }
+}

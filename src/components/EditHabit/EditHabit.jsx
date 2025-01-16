@@ -45,7 +45,6 @@ function EditPage() {
   return (
     <div>
       <AddHabit habitData={habitData} onSubmit={handleUpdateHabit} />
-      <button onClick={logHabitData}>Log Habit Data</button>{" "}
     </div>
   );
 }

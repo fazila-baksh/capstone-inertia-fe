@@ -5,33 +5,25 @@ import { baseUrl } from "../../utilities/config.js";
 
 function WeeklyHabits() {
   const [habits, setHabits] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchHabits = async () => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      const response = await axios.get(`${baseUrl}/user/1/habits/weekly`);
-      const data = response.data;
-      setHabits(data);
-    } catch (err) {
-      console.error("Error fetching habits:", err.message);
-      setError(err.message);
-    }
-    setLoading(false);
-  };
-
   useEffect(() => {
+    const fetchHabits = async () => {
+      try {
+        const response = await axios.get(`${baseUrl}/user/1/habits/weekly`);
+        setHabits(response.data);
+      } catch (error) {
+        console.log(error);
+        setError("error fetching habits");
+      }
+    };
+
     fetchHabits();
   }, []);
 
   return (
     <section className="weekly">
       <h2 className="weekly__title">weekly overview</h2>
-      {loading && <div>Loading...</div>}
-      {error && <div className="error">Error: {error}</div>}{" "}
       <table className="weekly__table">
         <thead>
           <tr className="weekly__table-headers">
@@ -47,41 +39,30 @@ function WeeklyHabits() {
           </tr>
         </thead>
         <tbody>
-          {habits.length === 0 ? (
-            <tr>
-              <td colSpan="9">no habits found</td>
+          {habits.map((habit) => (
+            <tr key={habit.habit_name} className="weekly__table-data-container">
+              <td className="weekly__table-data">{habit.habit_name}</td>
+              {[
+                "sunday",
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "saturday",
+              ].map((day) => {
+                const dayData = habit.weeklyTracking.find(
+                  (tracking) => tracking.day === day
+                );
+                return (
+                  <td key={day} className="weekly__table-data">
+                    {dayData && dayData.completed ? "o" : ""}
+                  </td>
+                );
+              })}
+              <td className="weekly__table-data">{habit["0"]}</td>
             </tr>
-          ) : (
-            habits.map((habit) => (
-              <tr
-                key={habit.habit_name}
-                className="weekly__table-data-container"
-              >
-                <td className="weekly__table-data">
-                  {habit.habit_name.toLowerCase()}
-                </td>
-                {[
-                  "sunday",
-                  "monday",
-                  "tuesday",
-                  "wednesday",
-                  "thursday",
-                  "friday",
-                  "saturday",
-                ].map((day) => {
-                  const dayData = habit.weeklyTracking.find(
-                    (tracking) => tracking.day.toLowerCase() === day
-                  );
-                  return (
-                    <td key={day} className="weekly__table-data">
-                      {dayData && dayData.completed ? "✔" : ""}
-                    </td>
-                  );
-                })}
-                <td className="weekly__table-data">{habit["0"]}</td>
-              </tr>
-            ))
-          )}
+          ))}
         </tbody>
       </table>
     </section>
