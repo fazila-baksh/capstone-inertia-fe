@@ -1,6 +1,5 @@
-import Header from "./components/Header/Header";
-import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
 import HomePage from "./pages/HomePage/HomePage";
 import WeeklyPage from "./pages/WeeklyPage/WeeklyPage";
 import HabitPage from "./pages/HabitPage/HabitPage";
@@ -15,10 +14,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/habit" element={<HabitPage />} />
+          <Route path="/habit/:id" element={<HabitPage />} />
           <Route path="/weekly" element={<WeeklyPage />} />
           <Route path="/add" element={<AddHabit />} />
-          <Route path="/edit" element={<EditHabit />} />
+          <Route path="edit/:id" element={<EditHabit />} />
         </Routes>
         <Footer />
       </BrowserRouter>
