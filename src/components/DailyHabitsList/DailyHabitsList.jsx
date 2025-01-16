@@ -41,14 +41,12 @@ function DailyHabitsList() {
           </p>
         ) : (
           habits.map((habit) => (
-            <Link
-              to={`habit/${habit.habit_id}`}
-              className="habit"
-              key={habit.habit_id}
-            >
+            <div className="habit" key={habit.habit_id}>
               <input className="habit__checkbox" type="checkbox" />
-              <p className="habit__name">{habit.habit_name}</p>
-            </Link>
+              <Link to={`habit/${habit.habit_id}`} className="habit__name">
+                {habit.habit_name}
+              </Link>
+            </div>
           ))
         )}
       </div>
