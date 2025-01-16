@@ -23,13 +23,13 @@ function DeleteHabit({ onDelete, children }) {
       {showModal && (
         <div className="delete">
           <div className="delete__message">
-            <p>Are you sure you want to delete this habit?</p>
+            <p>are you sure you want to delete this habit?</p>
             <div className="delete__btn-container">
               <button className="delete__btn" onClick={handleConfirmDelete}>
-                Delete
+                delete
               </button>
               <button className="delete__btn" onClick={handleCancelDelete}>
-                Cancel
+                cancel
               </button>
             </div>
           </div>
