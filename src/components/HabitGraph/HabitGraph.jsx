@@ -39,6 +39,8 @@ const data = {
 function HabitGraph() {
   return (
     <section className="line-graph-container">
+      <h2 className="indvHabit__subtitle">Overview</h2>
+      <p className="indvHabit__date">January 1st, 2024 - December 31st, 2024</p>
       <Line data={data} />
     </section>
   );
