@@ -1,9 +1,34 @@
+// import "./Banner.scss";
+
+// function Banner() {
+//   return <p className="banner">struggling is part of learning</p>;
+// }
+
+// export default Banner;
+
 import "./Banner.scss";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { baseUrl } from "../../utilities/config.js";
 
 function Banner() {
-  return (
-    <p className="banner">add affirmation api here for daily affirmation</p>
-  );
+  const [affirmation, setAffirmation] = useState("");
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${baseUrl}/api/affirmations`);
+        setAffirmation(response.data.affirmation);
+      } catch (error) {
+        setError(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return <p className="banner">{affirmation}</p>;
 }
 
 export default Banner;
