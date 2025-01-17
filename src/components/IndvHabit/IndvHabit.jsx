@@ -12,7 +12,7 @@ import { baseUrl } from "../../utilities/config";
 
 function IndvHabit() {
   const { id } = useParams();
-  const [indvHabit, setIndvHabit] = useState([]);
+  const [indvHabit, setIndvHabit] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function IndvHabit() {
   return (
     <section className="indvHabit">
       <div className="indvHabit__banner">
-        <Link to="/edit/:id">
+        <Link to={`/edit/${id}`}>
           <img className="indvHabit__icon" src={edit} alt="Edit" />
         </Link>
         {indvHabit.map((habit) => (
@@ -57,7 +57,7 @@ function IndvHabit() {
       </div>
       <HabitDetails />
       <h2 className="indvHabit__subtitle">overview</h2>
-      <p className="indvHabit__date">january 1st, 2025 - december 31st, 2025</p>
+      <p className="indvHabit__date">january 1st, 2024 - december 31st, 2024</p>
       <HabitGraph />
     </section>
   );

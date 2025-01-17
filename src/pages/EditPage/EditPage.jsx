@@ -1,5 +1,5 @@
-import AddHabit from "../../components/AddHabit/AddHabit";
+import EditHabit from "../../components/EditHabit/EditHabit";
 
-function AddPage() {
-  return <AddHabit />;
+function EditPage() {
+  return <EditHabit />;
 }
