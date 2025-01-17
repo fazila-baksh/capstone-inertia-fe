@@ -18,7 +18,7 @@ function Banner() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/api/affirmations`);
+        const response = await axios.get(`${baseUrl}/user/1/api/affirmations`);
         setAffirmation(response.data.affirmation);
       } catch (error) {
         setError(error);
