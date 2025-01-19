@@ -13,7 +13,8 @@ import { baseUrl } from "../../utilities/config";
 function IndvHabit() {
   const { id } = useParams();
   const [indvHabit, setIndvHabit] = useState(null);
-  const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
 
   useEffect(() => {
     const fetchIndvHabit = async () => {
@@ -21,13 +22,32 @@ function IndvHabit() {
         const response = await axios.get(`${baseUrl}/user/1/habits/${id}`);
         setIndvHabit(response.data);
       } catch (error) {
-        console.log(error);
-        setError("error fetching habit");
+        console.error("Error getting habit:", error);
       }
     };
 
     fetchIndvHabit();
   }, [id]);
+
+  useEffect(() => {
+    if (deleteSuccess) {
+      setShowModal(false);
+    }
+  }, [deleteSuccess]);
+
+  const handleClick = () => {
+    setShowModal(true);
+  };
+
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(`${baseUrl}/user/1/habits/${id}`);
+      console.log(response, "response");
+      setDeleteSuccess(response.status === 200);
+    } catch (error) {
+      console.error("Error deleting habit", error);
+    }
+  };
 
   if (!indvHabit) {
     return <div>loading</div>;
@@ -40,16 +60,20 @@ function IndvHabit() {
           <img className="indvHabit__icon" src={edit} alt="Edit" />
         </Link>
         <h2 className="indvHabit__title">{indvHabit.habit_name}</h2>
-        <DeleteHabit>
-          {({ showModal, setShowModal }) => (
-            <img
-              className="indvHabit__icon"
-              src={remove}
-              alt="Delete"
-              onClick={() => setShowModal(true)}
-            />
-          )}
-        </DeleteHabit>
+        <img
+          className="indvHabit__icon"
+          src={remove}
+          alt="Delete"
+          onClick={handleClick}
+        />
+        {showModal && (
+          <DeleteHabit
+            habitId={id}
+            showModal={showModal}
+            setShowModal={setShowModal}
+            onDelete={handleDelete}
+          />
+        )}
       </div>
       <HabitDetails />
       <h2 className="indvHabit__subtitle">overview</h2>

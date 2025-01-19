@@ -1,12 +1,9 @@
 import "./DeleteHabit.scss";
 import React, { useState } from "react";
 
-function DeleteHabit({ onDelete, children }) {
-  const [showModal, setShowModal] = useState(false);
-
+function DeleteHabit({ setShowModal, showModal, onDelete }) {
   const handleConfirmDelete = () => {
     onDelete();
-    setShowModal(false);
   };
 
   const handleCancelDelete = () => {
@@ -15,11 +12,6 @@ function DeleteHabit({ onDelete, children }) {
 
   return (
     <>
-      {children({
-        showModal,
-        setShowModal,
-      })}
-
       {showModal && (
         <div className="delete">
           <div className="delete__message">
