@@ -5,7 +5,6 @@ import { baseUrl } from "../../utilities/config.js";
 
 function WeeklyHabits() {
   const [habits, setHabits] = useState([]);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchHabits = async () => {
@@ -13,8 +12,7 @@ function WeeklyHabits() {
         const response = await axios.get(`${baseUrl}/user/1/habits/weekly`);
         setHabits(response.data);
       } catch (error) {
-        console.log(error);
-        setError("error fetching habits");
+        console.error("Error fetching habits", error);
       }
     };
 
@@ -43,13 +41,13 @@ function WeeklyHabits() {
             <tr key={habit.habit_name} className="weekly__table-data-container">
               <td className="weekly__table-data">{habit.habit_name}</td>
               {[
-                "sunday",
-                "monday",
-                "tuesday",
-                "wednesday",
-                "thursday",
-                "friday",
-                "saturday",
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
               ].map((day) => {
                 const dayData = habit.weeklyTracking.find(
                   (tracking) => tracking.day === day
@@ -60,7 +58,7 @@ function WeeklyHabits() {
                   </td>
                 );
               })}
-              <td className="weekly__table-data">{habit["0"]}</td>
+              <td className="weekly__table-data">{habit.goal_frequency}</td>
             </tr>
           ))}
         </tbody>
