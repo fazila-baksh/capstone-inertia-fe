@@ -29,16 +29,14 @@ function HabitDetails() {
 
   return (
     <>
-      {habitDetails.map((habit) => (
-        <div className="habit-details" key={habit.id}>
-          <h3 className="habit-details__subtitle">description:</h3>
-          <p className="habit-details__text">{habit.description}</p>
-          <h3 className="habit-details__subtitle">frequency:</h3>
-          <p className="habit-details__text">
-            {habit.goal_frequency} days a week
-          </p>
-        </div>
-      ))}
+      <div className="habit-details" key={habitDetails.habit_id}>
+        <h3 className="habit-details__subtitle">description:</h3>
+        <p className="habit-details__text">{habitDetails.description}</p>
+        <h3 className="habit-details__subtitle">frequency:</h3>
+        <p className="habit-details__text">
+          {habitDetails.goal_frequency} days a week
+        </p>
+      </div>
     </>
   );
 }

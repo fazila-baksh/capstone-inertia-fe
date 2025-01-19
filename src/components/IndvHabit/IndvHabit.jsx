@@ -39,11 +39,7 @@ function IndvHabit() {
         <Link to={`/edit/${id}`}>
           <img className="indvHabit__icon" src={edit} alt="Edit" />
         </Link>
-        {indvHabit.map((habit) => (
-          <div key={habit.id}>
-            <h2 className="indvHabit__title">{habit.habit_name}</h2>
-          </div>
-        ))}
+        <h2 className="indvHabit__title">{indvHabit.habit_name}</h2>
         <DeleteHabit>
           {({ showModal, setShowModal }) => (
             <img
