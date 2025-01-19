@@ -1,14 +1,19 @@
 import "./AddHabit.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { baseUrl } from "../../utilities/config";
 
 function AddHabit() {
+  const [addStatus, setAddStatus] = useState(false);
   const [newHabit, setNewHabit] = useState({
     habit_name: "",
     description: "",
     goal_frequency: "",
   });
+
+  useEffect(() => {
+    setAddStatus(false);
+  }, []);
 
   const handleChange = (event) => {
     setNewHabit({ ...newHabit, [event.target.name]: event.target.value });
@@ -16,19 +21,19 @@ function AddHabit() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(newHabit, "new habit item");
-
     const updateNewHabit = {
       ...newHabit,
       goal_frequency: Number(newHabit.goal_frequency),
     };
 
     try {
-      const response = await axios.post(
-        `${baseUrl}/user/1/habits/add`,
-        updateNewHabit
-      );
-      console.log("New habit created:", response.data);
+      await axios.post(`${baseUrl}/user/1/habits/add`, updateNewHabit);
+      setNewHabit({
+        habit_name: "",
+        description: "",
+        goal_frequency: "",
+      });
+      setAddStatus(true);
     } catch (error) {
       console.error("Error creating habit:", error);
     }
@@ -37,6 +42,7 @@ function AddHabit() {
   return (
     <section className="add-habit">
       <h2 className="add-habit__title">add a habit</h2>
+      {!addStatus ? "" : <h3>sent!</h3>}
       <form className="add-habit__form" onSubmit={handleSubmit}>
         <label htmlFor="habit_name" className="add-habit__label">
           name:
