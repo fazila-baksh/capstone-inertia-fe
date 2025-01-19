@@ -3,22 +3,21 @@ import "./DailyHabitsList.scss";
 import { Link } from "react-router";
 import axios from "axios";
 import { baseUrl } from "../../utilities/config.js";
+import HabitLIstItem from "../HabitListItem/HabitListItem.jsx";
 
 function DailyHabitsList() {
   const [habits, setHabits] = useState([]);
-  const [error, setError] = useState(null);
+
+  const fetchHabits = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/user/1/habits/daily`);
+      setHabits(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    const fetchHabits = async () => {
-      try {
-        const response = await axios.get(`${baseUrl}/user/1/habits/daily`);
-        setHabits(response.data);
-      } catch (error) {
-        console.log(error);
-        setError("error fetching habits");
-      }
-    };
-
     fetchHabits();
   }, []);
 
@@ -41,12 +40,11 @@ function DailyHabitsList() {
           </p>
         ) : (
           habits.map((habit) => (
-            <div className="habit" key={habit.habit_id}>
-              <input className="habit__checkbox" type="checkbox" />
-              <Link to={`habit/${habit.habit_id}`} className="habit__name">
-                {habit.habit_name}
-              </Link>
-            </div>
+            <HabitLIstItem
+              key={habit.habit_id}
+              habit={habit}
+              fetchHabits={fetchHabits}
+            />
           ))
         )}
       </div>
