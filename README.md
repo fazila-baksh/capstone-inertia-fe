@@ -94,7 +94,7 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 **GET /:userId/habits/daily**
 - gives list of habits for that user
-- gets user id from params, uses that to get all habits from habits table, then looks at habits log table to see if the habit was completed for today 
+- gets user id from params, uses that to get all habits from habits table, then looks at habit logs table to see if the habit was completed for today 
 ```
 [
     {
@@ -108,7 +108,7 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 **GET /:userId/habits/weekly**
 - gives list of habits for that user and a list of when each habit was completed that week 
-- gets user Id from param, uses that to get all habits from habit table, then searches the habit logs table for each habit to find all logs for this current week 
+- gets user id from params, uses that to get all habits from habits table, then searches the habit logs table for each habit to find all logs for this current week 
 ```
 [
    {
@@ -128,7 +128,7 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 **GET /:userId/habits/:habitId**
 - gets details for a specific habit
-- gets habit id from param, then searches habit table to get details of the habit, then goes through habit logs table and counts how man times the habit was completed for each month
+- gets habit id from params, then searches habits table to get details of the habit, then goes through habit logs table and counts how many times the habit was completed for each month
 ```
 [
     {
@@ -155,45 +155,39 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 ]
 ```
 
+**GET /:userId/api/affirmations**
+- gets affirmation from api
+```
+{
+    "affirmation": "You're doing a great job"
+}
+```
+
 ## Post Endpoints
 
 **POST /:userId/habits/add**
 - adds new habit
-- gets habit name, description and goal frequency from request body and adds new habit to the habit hable
-- 
+- gets habit name, description and goal frequency from request body and adds new habit to the habits table
 
 **POST /:userId/habits/:habitId**
 - adds new log for specific habit
 - gets log date, completed and log month from request body, then adds new log to habit logs table 
 
-```
-[
-     {
-        "log_id": 169,
-        "log_date": "2025-01-18T05:00:00.000Z",
-        "completed": 1,
-        "created_at": "2025-01-20T01:55:03.000Z",
-        "habit_id": 1,
-        "log_month": "January"
-    }
-]
-```
-
 ## Delete Endpoints
 
 **DELETE /:userId/habits/:habitId**
 - deletes habit from habit table
-- gets habit id from params and deletes habit fom habit table 
+- gets habit id from params and deletes habit fom habits table 
 
 **DELETE /:userId/habits/:logId**
-- deletes log from habits logs tabls
+- deletes log from habit logs table
 - gets log id from params and deletes log from habit logs table
 
 ##Put Endpoint
 
 **PUT /:userId/habits/:habitId/edit**
 - updates habit in habits table
-- gets habit if from params and gets updates habit name, description and goal frequency from request body, then updates that habit in habits table 
+- gets habit id from params and gets updated habit name, description and goal frequency from request body, then updates that habit in habits table
 
 
 ## Roadmap
