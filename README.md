@@ -81,15 +81,120 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 **GET /:userId**
 - gives user name and user id
-- gets user id from param and gives username and user id (from users table)
+- gets user id from param and gives username and user id from users table
 ```
-[{
-    "id": 1,
-    "username": "bob"
+[
+    {
+        "id": 1,
+        "username": "bob"
+    },
+...
+]
+```
+
+**GET /:userId/habits/daily**
+- gives list of habits for that user
+- gets user id from params, uses that to get all habits from habits table, then looks at habits log table to see if the habit was completed for today 
+```
+[
+    {
+        "habit_id": 1,
+        "habit_name": "exercise",
+        "log_id": 160
+    },
+...
+]
+```
+
+**GET /:userId/habits/weekly**
+- gives list of habits for that user and a list of when each habit was completed that week 
+- gets user Id from param, uses that to get all habits from habit table, then searches the habit logs table for each habit to find all logs for this current week 
+```
+[
+   {
+        "habit_id": 1,
+        "habit_name": "exercise",
+        "goal_frequency": 4,
+        "weeklyTracking": [
+            {
+                "day": "Sunday",
+                "completed": 1
+            }
+        ]
+    },
+...
+]
+```
+
+**GET /:userId/habits/:habitId**
+- gets details for a specific habit
+- gets habit id from param, then searches habit table to get details of the habit, then goes through habit logs table and counts how man times the habit was completed for each month
+```
+[
+    {
+    "habit_id": 1,
+    "habit_name": "exercise",
+    "description": "1 hour workout 4 times a week",
+    "goal_frequency": 4,
+    "graphYValues": [
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    ]
 },
 ...
 ]
 ```
+
+## Post Endpoints
+
+**POST /:userId/habits/add**
+- adds new habit
+- gets habit name, description and goal frequency from request body and adds new habit to the habit hable
+- 
+
+**POST /:userId/habits/:habitId**
+- adds new log for specific habit
+- gets log date, completed and log month from request body, then adds new log to habit logs table 
+
+```
+[
+     {
+        "log_id": 169,
+        "log_date": "2025-01-18T05:00:00.000Z",
+        "completed": 1,
+        "created_at": "2025-01-20T01:55:03.000Z",
+        "habit_id": 1,
+        "log_month": "January"
+    }
+]
+```
+
+## Delete Endpoints
+
+**DELETE /:userId/habits/:habitId**
+- deletes habit from habit table
+- gets habit id from params and deletes habit fom habit table 
+
+**DELETE /:userId/habits/:logId**
+- deletes log from habits logs tabls
+- gets log id from params and deletes log from habit logs table
+
+##Put Endpoint
+
+**PUT /:userId/habits/:habitId/edit**
+- updates habit in habits table
+- gets habit if from params and gets updates habit name, description and goal frequency from request body, then updates that habit in habits table 
+
 
 ## Roadmap
 
