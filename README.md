@@ -1,10 +1,8 @@
-# Project Title
-
-Inertia
+# inertia
 
 ## Overview
 
-Inertia is a lifestyle app that allows users to track their daily habits. It is designed to help individuals maintain consistency in building habits and stay motivated.
+inertia is a lifestyle app that allows users to track their daily habits. It is designed to help individuals maintain consistency in building habits and stay motivated.
 
 ### Problem Space
 
@@ -23,11 +21,11 @@ How will they use it?
 
 ### Features
 
-As a user, I want to be able to create a list of habits I want to track (e.g., exercise, reading, hydration).
-As a user, I want to be able to set goals for my habits (e.g. 7 days a week).
-As a user, I want to be able to track my progress (how many times have I completed the habit in a week/month)
-As a user, I want to log my daily progress for each habit (e.g., mark that I exercised today).
-As a user, I want to view my progress over time for each habit.
+- As a user, I want to be able to create a list of habits I want to track (e.g., exercise, reading, hydration).
+- As a user, I want to be able to set goals for my habits (e.g. 7 days a week).
+- As a user, I want to be able to track my progress (how many times have I completed the habit in a week/month)
+- As a user, I want to log my daily progress for each habit (e.g., mark that I exercised today).
+- As a user, I want to view my progress over time for each habit.
 
 ## Implementation
 
@@ -43,7 +41,7 @@ As a user, I want to view my progress over time for each habit.
 
 ### APIs
 
-Daily affirmations API
+Daily affirmations API (https://www.affirmations.dev/)
 
 ### Sitemap
 
@@ -79,45 +77,19 @@ Provide visuals of your app's screens. You can use pictures of hand-drawn sketch
 
 ### Endpoints
 
-POST /habits - create new habit with a name and goal
+## Get Endpoints 
 
-request:
-{
-"name": "Water",
-"goal_daily": 8
-"goal_weekly": 7
+**GET /:userId**
+- gives user name and user id
+- gets user id from param and gives username and user id (from users table)
+```
+[{
+    "id": 1,
+    "username": "bob"
 },
-
-{
-"name": "Exercise",
-"goal_weekly": 4
-}
-
-response:
-{
-"id": 1,
-"name": "Exercise",
-"goal_weekly": 4,
-"progress": 0,
-}
-
-GET /habits - retrieve all habits stored
-
-{
-"id": 1,
-"name": "Exercise",
-"goal_weekly": 4,
-"progress": 2,
-}
-
-GET /habits/:id - retrieve habit by specific id
-
-{
-"id": 1,
-"name": "Exercise",
-"goal_weekly": 4,
-"progress": 2,
-}
+...
+]
+```
 
 ## Roadmap
 
