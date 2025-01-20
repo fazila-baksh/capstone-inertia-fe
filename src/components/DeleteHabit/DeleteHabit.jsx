@@ -1,5 +1,4 @@
 import "./DeleteHabit.scss";
-import React, { useState } from "react";
 
 function DeleteHabit({ setShowModal, showModal, onDelete }) {
   const handleConfirmDelete = () => {

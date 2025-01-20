@@ -1,11 +1,3 @@
-// import "./Banner.scss";
-
-// function Banner() {
-//   return <p className="banner">struggling is part of learning</p>;
-// }
-
-// export default Banner;
-
 import "./Banner.scss";
 import axios from "axios";
 import { useState, useEffect } from "react";

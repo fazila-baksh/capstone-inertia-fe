@@ -8,7 +8,6 @@ function HabitLIstItem({ habit, fetchHabits }) {
   const [isChecked, setIsChecked] = useState(habit.log_id !== 0);
 
   const handleCheckboxChange = async () => {
-    // Checkbox functionality - function to add or delete habit log (for that habit) when you check or uncheck the checkbox
     const currMonth = new Date().toLocaleString("default", { month: "long" });
     const currDate = new Date().toLocaleDateString("en-CA");
 
@@ -61,17 +60,3 @@ function HabitLIstItem({ habit, fetchHabits }) {
   );
 }
 export default HabitLIstItem;
-
-{
-  /* <div className="habit" key={habit.habit_id}>
-  <input
-    className="habit__checkbox"
-    type="checkbox"
-    checked={habit.log_id === 0 ? false : true}
-    onChange={() => handleCheckboxChange(habit.habit_id)}
-  />
-  <Link to={`habit/${habit.habit_id}`} className="habit__name">
-    {habit.habit_name}
-  </Link>
-</div>; */
-}
