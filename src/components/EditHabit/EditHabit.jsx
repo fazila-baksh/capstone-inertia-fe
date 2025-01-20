@@ -56,7 +56,11 @@ function EditHabit() {
   return (
     <section className="edit-habit">
       <h2 className="edit-habit__title">edit your habit</h2>
-      {!editStatus ? "" : <h3>sent!</h3>}
+      {!editStatus ? (
+        ""
+      ) : (
+        <h3 className="edit-habit__confirm">habit updated!</h3>
+      )}
       <form className="edit-habit__form" onSubmit={handleSubmit}>
         <label htmlFor="habit_name" className="edit-habit__label">
           name:
@@ -81,6 +85,7 @@ function EditHabit() {
           name="description"
           value={editHabit.description}
           onChange={handleChange}
+          required
         />
 
         <label htmlFor="goal_frequency" className="edit-habit__label">
@@ -92,6 +97,7 @@ function EditHabit() {
           name="goal_frequency"
           value={editHabit.goal_frequency}
           onChange={handleChange}
+          required
         >
           <option value="" disabled>
             select goal

@@ -16,6 +16,18 @@
     margin: 0;
     text-align: center;
   }
+
+  &__confirm {
+    text-align: center;
+    border: 0.125rem solid $tertiary-color;
+    justify-self: center;
+    border-radius: 1.25rem;
+    margin: 0.625rem;
+    padding: 0.3125rem 1.25rem;
+    color: white;
+    font-family: "Sour-Gummy";
+  }
+
   &__form {
     background-color: $tertiary-color;
     padding: 0.625rem 0.625rem 1.25rem 0.625rem;

@@ -27,8 +27,9 @@
   }
 
   &__name {
+    font-size: 1rem;
     margin: 0 0 0 0.625rem;
-    align-self: center;
+    text-align: center;
     color: black;
     &:hover {
       color: black;

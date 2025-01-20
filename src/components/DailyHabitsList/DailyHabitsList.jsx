@@ -30,7 +30,7 @@ function DailyHabitsList() {
       <div className="habits__banner">
         <h2 className="habits__title">daily habits</h2>
         <Link to="/add">
-          <button className="habits__btn">+ add</button>
+          <button className="habits__btn">+ new habit</button>
         </Link>
       </div>
       <div className="habits__container">

@@ -6,7 +6,7 @@ import HabitDetails from "../HabitDetails/HabitDetails";
 import HabitGraph from "../HabitGraph/HabitGraph";
 import DeleteHabit from "../DeleteHabit/DeleteHabit";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../../utilities/config";
 
@@ -15,6 +15,7 @@ function IndvHabit() {
   const [indvHabit, setIndvHabit] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [deleteSuccess, setDeleteSuccess] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchIndvHabit = async () => {
@@ -30,8 +31,13 @@ function IndvHabit() {
   }, [id]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (deleteSuccess) {
       setShowModal(false);
+      navigate("/");
     }
   }, [deleteSuccess]);
 
@@ -77,7 +83,7 @@ function IndvHabit() {
       </div>
       <HabitDetails />
       <h2 className="indvHabit__subtitle">overview</h2>
-      <p className="indvHabit__date">january 1st, 2024 - december 31st, 2024</p>
+      <p className="indvHabit__date">jan 1st, 2024 - dec 31st, 2024</p>
       <HabitGraph />
     </section>
   );

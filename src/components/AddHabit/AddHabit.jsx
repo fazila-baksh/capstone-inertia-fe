@@ -42,7 +42,11 @@ function AddHabit() {
   return (
     <section className="add-habit">
       <h2 className="add-habit__title">add a habit</h2>
-      {!addStatus ? "" : <h3>sent!</h3>}
+      {!addStatus ? (
+        ""
+      ) : (
+        <h3 className="add-habit__confirm">new habit added!</h3>
+      )}
       <form className="add-habit__form" onSubmit={handleSubmit}>
         <label htmlFor="habit_name" className="add-habit__label">
           name:
@@ -67,6 +71,7 @@ function AddHabit() {
           name="description"
           value={newHabit.description}
           onChange={handleChange}
+          required
         />
 
         <label htmlFor="goal_frequency" className="add-habit__label">
@@ -78,6 +83,7 @@ function AddHabit() {
           name="goal_frequency"
           value={newHabit.goal_frequency}
           onChange={handleChange}
+          required
         >
           <option value="" disabled>
             select goal

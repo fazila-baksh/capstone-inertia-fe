@@ -9,22 +9,23 @@
   padding: 1rem;
 
   &__banner {
-    @include flex(flex, row, space-around, center);
+    @include flex(flex, column, center, center);
   }
 
   &__title {
-    font-size: 2.1875rem;
+    font-size: 35px;
     margin: 0;
-    margin-left: 3.125rem;
     font-family: "Sour-Gummy";
     color: white;
   }
 
   &__btn {
-    justify-self: flex-end;
-    padding: 0.3125rem 0.9375rem;
+    justify-self: center;
+    padding: 0.3125rem 2.8125rem;
     background-color: $primary-color;
     font-family: "Sour-Gummy";
+    font-size: 1.25rem;
+    margin: 0.625rem;
   }
 
   &__container {
